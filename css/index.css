@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+ul li {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+}
