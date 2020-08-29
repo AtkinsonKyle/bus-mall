@@ -107,3 +107,50 @@ imgElOne.addEventListener('click', eventHandler);
 imgElTwo.addEventListener('click', eventHandler);
 imgElThree.addEventListener('click', eventHandler);
 
+function renderBargraph() {
+  //local variables
+  var productNameArray = [];
+  var totalClicksArray = [];
+  var totalViewsArray = [];
+  var data1ColorArray = [];
+  var data2ColorArray = [];
+
+  //1.
+  for (var k = 0; k < imgArray.length; k++) {
+    productNameArray.push(imgArray[k].name);
+    totalClicksArray.push(imgArray[k].clicked);
+    totalViewsArray.push(imgArray[k].viewed);
+    data1ColorArray.push('rgba(255, 180, 76, 1)');
+    data2ColorArray.push('rgba(54, 200, 235, 1)');
+  }
+
+  //2.
+  var barGraphObject = {
+    type: 'horizontalBar',
+    data: {
+      labels: productNameArray,
+      datasets: [{
+        label: '# of Clicks',
+        data: totalClicksArray,
+        backgroundColor: data1ColorArray,
+        borderColor: data1ColorArray,
+        borderWidth: 1
+      }, {
+        label: '# of Total Views',
+        data: totalViewsArray,
+        backgroundColor: data2ColorArray,
+        borderColor: data2ColorArray,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  };
